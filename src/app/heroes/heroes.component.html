@@ -1,0 +1,19 @@
+<br>
+<app-create-hero (heroCreated)="onHeroCreated($event)">
+</app-create-hero>
+
+<h2>Lista de Héroes</h2>
+<div *ngIf="!loading">
+  <ul class="heroes">
+    <li *ngFor="let heroesDeLaLista of heroes"
+        routerLink="/detail/{{ heroesDeLaLista.id }}">
+      <span class="badge">{{ heroesDeLaLista.id }}</span>{{ heroesDeLaLista.name }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="loading">
+  <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!c1024wm0" alt="" srcset="">
+  <h3>Cargando...</h3>
+</div>
+

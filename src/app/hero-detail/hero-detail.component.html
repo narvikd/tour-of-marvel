@@ -1,0 +1,12 @@
+<div *ngIf="selectedHero">
+  <h2>Detalles de {{ selectedHero.name | uppercase }}</h2>
+  <div>ID: {{ selectedHero.id }}</div>
+  <div>
+    <label for="name">Nombre: </label>
+    <input [(ngModel)]="selectedHero.name" type="text" id="name">
+  </div>
+  <br>
+  <button (click)="update()">Update</button>
+</div>
+<br>
+<button (click)="volverAtras()"><- Atrás</button>
