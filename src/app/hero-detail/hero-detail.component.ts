@@ -22,7 +22,8 @@ export class HeroDetailComponent implements OnInit {
     const id = +this.route.snapshot.params['id'];
 
     this.heroService.getHeroById(id).subscribe((hero?: Hero) => {
-        this.selectedHero = hero;
+      console.log(hero)
+      this.selectedHero = hero;
     });
   }
 
@@ -30,11 +31,4 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  public update(): void {
-    if (this.selectedHero) {
-      this.heroService.updateHero(this.selectedHero).subscribe(() => {
-        alert('Guardado ok');
-      });
-    }
-  }
 }

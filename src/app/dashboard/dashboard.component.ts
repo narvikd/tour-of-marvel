@@ -11,17 +11,19 @@ export class DashboardComponent implements OnInit {
   public heroes: Hero[] = [];
 
   constructor(
-    private heroService: HeroService
-  ) { }
+    private heroService: HeroService,
+  ) {}
 
   ngOnInit(): void {
     this.loadHeroes();
   }
 
   private loadHeroes() {
-    this.heroService.getHeroes().subscribe((heroesBienObservados: Hero[]) => {
-      this.heroes = heroesBienObservados.slice(1, 5);
-    });
+    for (let i = 0; i < 12; i++) {
+      this.heroService.getRandomHero().subscribe((hero: Hero) => {
+        this.heroes.push(hero);
+      });
+    }
   }
 
 }

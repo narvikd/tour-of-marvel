@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero} from "../hero";
 import {HeroService} from "../hero.service";
+import {Hero} from "../hero";
 
 @Component({
   selector: 'app-heroes',
@@ -9,14 +9,11 @@ import {HeroService} from "../hero.service";
 })
 export class HeroesComponent implements OnInit {
   public loading: boolean = true;
-
   public heroes: Hero[] = [];
-
 
   constructor(
     private heroService: HeroService
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.loadHeroes()
@@ -30,11 +27,4 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-
-  public onHeroCreated(newHero: string) {
-    this.heroes.push({
-      id: Math.floor(Math.random() * 100),
-      name: newHero
-    })
-  }
 }

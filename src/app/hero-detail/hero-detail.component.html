@@ -4,9 +4,9 @@
   <div>
     <label for="name">Nombre: </label>
     <input [(ngModel)]="selectedHero.name" type="text" id="name">
+    <p>{{ selectedHero.name }} aparece en un total de {{ selectedHero.comics.items.length }} comics.</p>
+    <img src="{{ selectedHero.thumbnail.path }}.jpg" alt="{{ selectedHero.name }}">
   </div>
-  <br>
-  <button (click)="update()">Update</button>
 </div>
 <br>
 <button (click)="volverAtras()"><- Atrás</button>

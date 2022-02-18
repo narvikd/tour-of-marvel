@@ -1,12 +1,8 @@
-<br>
-<app-create-hero (heroCreated)="onHeroCreated($event)">
-</app-create-hero>
-
 <h2>Lista de Héroes</h2>
 <div *ngIf="!loading">
   <ul class="heroes">
     <li *ngFor="let heroesDeLaLista of heroes"
-        routerLink="/detail/{{ heroesDeLaLista.id }}">
+        routerLink="/detail/{{ heroesDeLaLista }}">
       <span class="badge">{{ heroesDeLaLista.id }}</span>{{ heroesDeLaLista.name }}
     </li>
   </ul>
