@@ -1,0 +1,10 @@
+<div>
+  <label for="box">Character Search</label>
+  <input id="box" type="text" #input>
+  <br>
+  <ul class="result" *ngIf="!loading">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{ hero.id }}">{{ hero.name }}</a>
+    </li>
+  </ul>
+</div>

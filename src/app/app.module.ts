@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
     HeroesComponent,
     HeroDetailComponent,
     DashboardComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

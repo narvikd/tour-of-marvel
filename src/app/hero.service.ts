@@ -25,6 +25,11 @@ export class HeroService {
       .pipe(map((data: any) => data.data.results[0]));
   }
 
+  public getHeroesByName(name: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this.apiURL}characters?nameStartsWith=${name}&limit=3&offset=0${this.apiSecret}`)
+      .pipe(map((data: any) => data.data.results));
+  }
+
   // No sabía si meter esto en un helper, como es una función que da un poco igual donde esté,
   // la he dejado aquí en vez de crear otro archivo.
   public getRndNumber(): number {
