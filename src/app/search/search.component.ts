@@ -18,17 +18,20 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    fromEvent(this.input.nativeElement, 'keyup')
+    const elem = this.input.nativeElement
+    fromEvent(elem, 'keyup')
       .pipe(
         filter(Boolean),
         debounceTime(1000),
         distinctUntilChanged(),
         tap(() => {
-          this.heroService.getHeroesByName(this.input.nativeElement.value)
-            .subscribe((heroesObserved: Hero[]) => {
-              this.heroes = heroesObserved;
-            });
-          this.loading = false;
+          if (elem.value.length >= 3) {
+            this.heroService.getHeroesByName(elem.value)
+              .subscribe((heroesObserved: Hero[]) => {
+                this.heroes = heroesObserved;
+              });
+            this.loading = false;
+          }
         })
       )
       .subscribe();
