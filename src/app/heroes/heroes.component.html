@@ -2,7 +2,7 @@
 <div *ngIf="!loading">
   <ul class="heroes">
     <li *ngFor="let heroesDeLaLista of heroes"
-        routerLink="/detail/{{ heroesDeLaLista }}">
+        routerLink="/detail/{{ heroesDeLaLista.id }}">
       <span class="badge">{{ heroesDeLaLista.id }}</span>{{ heroesDeLaLista.name }}
     </li>
   </ul>
