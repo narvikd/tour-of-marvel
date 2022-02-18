@@ -20,7 +20,7 @@ export class HeroesComponent implements OnInit {
   }
 
   private loadHeroes(): void {
-    this.heroService.getHeroes()
+    this.heroService.getHeroes(20, 0)
       .subscribe((heroesObserved: Hero[]) => {
         this.heroes = heroesObserved;
         this.loading = false;

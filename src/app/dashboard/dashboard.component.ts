@@ -18,12 +18,11 @@ export class DashboardComponent implements OnInit {
     this.loadHeroes();
   }
 
-  private loadHeroes() {
-    for (let i = 0; i < 12; i++) {
-      this.heroService.getRandomHero().subscribe((hero: Hero) => {
-        this.heroes.push(hero);
+  private loadHeroes(): void {
+    this.heroService.getHeroes(12, this.heroService.getRndNumber())
+      .subscribe((heroesObserved: Hero[]) => {
+        this.heroes = heroesObserved;
       });
-    }
   }
 
 }

@@ -15,8 +15,8 @@ export class HeroService {
   ) {
   }
 
-  public getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(`${this.apiURL}characters?limit=20&offset=0${this.apiSecret}`)
+  public getHeroes(limit: number, offset: number): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this.apiURL}characters?limit=${limit}&offset=${offset}${this.apiSecret}`)
       .pipe(map((data: any) => data.data.results));
   }
 
@@ -25,13 +25,9 @@ export class HeroService {
       .pipe(map((data: any) => data.data.results[0]));
   }
 
-  public getRandomHero(): Observable<Hero> {
-    return this.http.get<Hero>(`${this.apiURL}characters?limit=1&offset=${HeroService.getRndNumber()}&${this.apiSecret}`)
-      .pipe(map((data: any) => data.data.results[0]));
-  }
-
-
-  private static getRndNumber(): number {
+  // No sabía si meter esto en un helper, como es una función que da un poco igual donde esté,
+  // la he dejado aquí en vez de crear otro archivo.
+  public getRndNumber(): number {
     const max = 600;
     const min = 300;
     return Math.floor(Math.random() * (max - min) + min);
