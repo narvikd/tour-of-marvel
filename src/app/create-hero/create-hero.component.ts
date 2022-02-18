@@ -15,7 +15,6 @@ export class CreateHeroComponent implements OnInit {
   }
 
   public addHero() {
-    console.log(this.heroName);
     this.heroCreated.emit(this.heroName);
   }
 

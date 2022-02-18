@@ -15,7 +15,6 @@ export class HeroService {
   }
 
   public getHeroes(): Observable<Hero[]> {
-    // return of(HEROES);
     return this.http.get<Hero[]>(this.apiURL);
   }
 
